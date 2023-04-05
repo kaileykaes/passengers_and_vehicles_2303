@@ -27,4 +27,9 @@ class Park
   def all_attendees
     passengers.map {|passenger| passenger.name}.sort
   end
+
+  def minors 
+    children = passengers.find_all {|passenger| passenger.adult? != true}
+    children.map {|child| child.name}.sort
+  end
 end
