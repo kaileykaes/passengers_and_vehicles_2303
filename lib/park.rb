@@ -25,7 +25,6 @@ class Park
   end
 
   def all_attendees
-    passengers = @vehicles.map {|vehicle| vehicle.passengers}.flatten!
     passengers.map {|passenger| passenger.name}.sort
   end
 end
