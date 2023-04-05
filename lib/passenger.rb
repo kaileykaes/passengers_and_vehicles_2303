@@ -7,4 +7,8 @@ class Passenger
     @age = passenger_details['age']
     @argument = passenger_details[:argument]
   end
+
+  def adult?
+    @age >= 18 ? true : false
+  end
 end
