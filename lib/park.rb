@@ -23,4 +23,9 @@ class Park
     @vehicles.map {|vehicle| @revenue += @admission_price * vehicle.num_adults}
     @revenue
   end
+
+  def all_attendees
+    passengers = @vehicles.map {|vehicle| vehicle.passengers}.flatten!
+    passengers.map {|passenger| passenger.name}.sort
+  end
 end
