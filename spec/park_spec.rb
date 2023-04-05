@@ -4,20 +4,20 @@ RSpec.describe Park do
   before(:each) do
     @rmnp = Park.new('Rocky Mountain National Park', 30)
     @pnf = Park.new('Pike National Forest', 50)
-    @civic = Vehicle.new("2001", "Honda", "Civic")  
-    @tacoma = Vehicle.new("2010", "Toyota", "Tacoma")  
+    @civic = Vehicle.new('2001', 'Honda', 'Civic')  
+    @tacoma = Vehicle.new('2010', 'Toyota', 'Tacoma')  
     @trex = Vehicle.new('2018', 'Tesla', 'Model 3')
     @charlie = Passenger.new({
-      "name" => "Charlie", 
-      "age" => 18
+      'name' => 'Charlie', 
+      'age' => 18
     })  
     @jude = Passenger.new({
-      "name" => "Jude", 
-      "age" => 20
+      'name' => 'Jude', 
+      'age' => 20
     })
     @taylor = Passenger.new({
-      "name" => "Taylor", 
-      "age" => 12
+      'name' => 'Taylor', 
+      'age' => 12
     })
     @harrison = Passenger.new({
       'name' => 'Harrison',
@@ -98,8 +98,38 @@ RSpec.describe Park do
       @rmnp.add_vehicle(@trex)
       @rmnp.add_vehicle(@civic)
       @pnf.add_vehicle(@tacoma)
-      expect(@rmnp.revenue).to eq(60)
-      expect(@pnf.revenue).to eq(50)
+      expect(@rmnp.revenue).to eq(120)
+      expect(@pnf.revenue).to eq(100)
+    end
+  end
+
+  #iteration 4
+
+  describe '#all_attendees' do 
+    it 'lists all attendees alphabetically' do 
+      @rmnp.add_vehicle(@trex)
+      @rmnp.add_vehicle(@civic)
+      @pnf.add_vehicle(@tacoma)
+      expect(@rmnp.all_attendees).to eq(['Charlie', 'Colibrito', 'Hummingbird', 'Jude', 'Taylor', 'Trystan'])
+      expect(@pnf.all_attendees).to eq(['Adam', 'Harrison'])
+    end
+  end
+
+  describe 'attendees by age' do 
+    it '#minors' do 
+      @rmnp.add_vehicle(@trex)
+      @rmnp.add_vehicle(@civic)
+      @pnf.add_vehicle(@tacoma)
+      expect(@rmnp.minors).to eq(['Colibrito', 'Taylor'])
+      expect(@pnf.minors).to eq([])
+    end
+
+    it '#adults' do
+      @rmnp.add_vehicle(@trex)
+      @rmnp.add_vehicle(@civic)
+      @pnf.add_vehicle(@tacoma)
+      expect(@rmnp.adults).to eq(['Charlie', 'Hummingbird', 'Jude', 'Trystan'])
+      expect(@pnf.adults).to eq(['Adam', 'Harrison'])
     end
   end
 end
