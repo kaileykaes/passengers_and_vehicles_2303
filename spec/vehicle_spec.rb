@@ -30,22 +30,22 @@ RSpec.describe Vehicle do
   end
 
   describe 'speed' do 
-    xit '#speeding?' do 
+    it '#speeding?' do 
       expect(@vehicle.speeding?).to be false
     end
 
-    xit '#speed' do 
+    it '#speed' do 
       @vehicle.speed
       expect(@vehicle.speeding?).to be true
     end
   end
 
   describe 'passengers' do 
-    xit 'starts without passengers' do 
+    it 'starts without passengers' do 
       expect(@vehicle.passengers).to eq([])
     end
 
-    xit '#add_passenger' do 
+    it '#add_passenger' do 
       @vehicle.add_passenger(@charlie)
       @vehicle.add_passenger(@jude)
       @vehicle.add_passenger(@taylor)
@@ -54,7 +54,7 @@ RSpec.describe Vehicle do
   end
 
   describe 'adulthood' do 
-    xit '#num_adults' do 
+    it '#num_adults' do 
       @vehicle.add_passenger(@charlie)
       @vehicle.add_passenger(@jude)
       @vehicle.add_passenger(@taylor)
