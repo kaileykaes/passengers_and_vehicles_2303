@@ -32,4 +32,9 @@ class Park
     children = passengers.find_all {|passenger| passenger.adult? != true}
     children.map {|child| child.name}.sort
   end
+
+  def adults 
+    adults = passengers.find_all {|passenger| passenger.adult?}
+    adults.map{|adult| adult.name}.sort
+  end
 end
