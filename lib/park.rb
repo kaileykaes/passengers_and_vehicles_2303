@@ -14,7 +14,7 @@ class Park
   end
 
   def passengers
-    @vehicles.map{ |vehicle| vehicle.passengers }.flatten!
+    @vehicles.flat_map{ |vehicle| vehicle.passengers }
   end
 
   def revenue
@@ -28,7 +28,7 @@ class Park
   end
 
   def minors 
-    children = passengers.find_all{ |passenger| passenger.adult? != true }
+    children = passengers.find_all{ |passenger| !passenger.adult? }
     children.map{ |child| child.name }.sort
   end
 
