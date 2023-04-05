@@ -26,12 +26,13 @@ RSpec.describe Passenger do
   end
 
   describe 'drive methods' do 
-    it '#drive & #driver?' do 
+    it '#driver?' do 
       expect(@charlie.driver?).to be false
+    end
+
+    it '#drive' do 
       @charlie.drive
       expect(@charlie.driver?).to be true
     end
   end
-
-
 end
